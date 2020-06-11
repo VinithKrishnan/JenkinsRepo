@@ -1,10 +1,12 @@
 Jenkinsfile (Declarative Pipeline)
 pipeline {
-    agent any
+    agent {
+        docker { image 'busybox' }
+    }
     stages {
-        stage('Build') {
+        stage('Test') {
             steps {
-                bat 'set'
+                sh 'echo "Docker ran!"'
             }
         }
     }
